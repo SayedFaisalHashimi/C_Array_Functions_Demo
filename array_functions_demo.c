@@ -9,6 +9,8 @@ void def_ine(int x[],int* size);
 
 int max(int x[],int* size);  
 
+int min(int x[], int* size);
+
 void sum2(int x[],int* size, int* sum);
 
 
@@ -16,13 +18,15 @@ void sum2(int x[],int* size, int* sum);
 // main part.
 int main()
 {
-    int M=0,sum=0; 
+    int M=0,sum=0,m=0; 
     int a[100];
     int size;
     def_ine(a,&size);
     M=max(a,&size);
+    m=min(a,&size);
     sum2(a,&size, &sum);
-    printf(" Max is : %d\n", M);
+    printf(" Max element is : %d\n", M);
+    printf(" Min element is : %d\n", m);
     printf(" Sum is : %d ", sum);
 
     return 0;
@@ -87,6 +91,18 @@ void sum2(int x[],int* size, int* sum)
     
     
     
+}
+
+
+
+int min(int x[], int* size) {
+    int Min = x[0];
+    for(int i = 1; i < *size; i++) {
+        if(x[i] < Min) {
+            Min = x[i];
+        }
+    }
+    return Min;
 }
 
 
