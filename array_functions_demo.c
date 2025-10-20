@@ -8,6 +8,8 @@
 // Function declarations
 void input_array(int x[],int* size);       // Function to input array elements with validation
 
+void display_array(int x[], int* size);  // Displays all elements of the array
+
 int max(int x[],int* size);                   // Function to find the maximum element
 
 int min(int x[], int* size);                  // Function to find the minimum element
@@ -24,6 +26,7 @@ int main()
     int size;      // Actual size of the array entered by the user
    
     input_array(a,&size);       // Input array elements
+    display_array(a, &size);    // Prints all numbers stored in the array
     M=max(a,&size);             // Find maximum element
     m=min(a,&size);             // Find minimum element
     sum_array(a,&size, &sum);   // Calculate sum of elements
@@ -47,7 +50,7 @@ void input_array(int x[],int* size)
     // Input and validate the array size
     
 do {
-    printf(" Enter the size (1–100): ");
+    printf("\nEnter the size (1–100): ");
     scanf("%d", size);
     if(*size <= 0 || *size > 100)
         printf(" Invalid size! Please try again.\n");
@@ -69,14 +72,6 @@ do {
 }
 
 
-
-// Display the entered array
-
-    printf("\nYou entered the following numbers:\n");
-      for(i=0; i<*size; i++) {
-      printf("%d ", x[i]);
-}
-printf("\n");
     
 }
 
@@ -128,5 +123,18 @@ int min(int x[], int* size) {
 }
 
 
+
+// Function to display array's elements
+
+void display_array(int x[], int* size)
+{
+    // Display the entered array
+    int j;
+    printf("\nYou entered the following numbers:\n");
+      for(j=0; j<*size; j++) {
+      printf("%d ", x[j]);
+      printf("\n");
+}
+}
 
 
