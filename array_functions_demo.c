@@ -5,13 +5,13 @@
 
 // Function declarations.
 
-void def_ine(int x[],int* size);
+void input_array(int x[],int* size);
 
 int max(int x[],int* size);  
 
 int min(int x[], int* size);
 
-void sum2(int x[],int* size, int* sum);
+void sum_array(int x[],int* size, int* sum);
 
 
 
@@ -21,10 +21,10 @@ int main()
     int M=0,sum=0,m=0; 
     int a[100];
     int size;
-    def_ine(a,&size);
+    input_array(a,&size);
     M=max(a,&size);
     m=min(a,&size);
-    sum2(a,&size, &sum);
+    sum_array(a,&size, &sum);
     printf(" Max element is : %d\n", M);
     printf(" Min element is : %d\n", m);
     printf(" Sum is : %d ", sum);
@@ -35,7 +35,7 @@ int main()
 
 
 // called  Definition function for a[]; .
-void def_ine(int x[],int* size)
+void input_array(int x[],int* size)
 {
     int i;
     
@@ -88,7 +88,7 @@ int max(int x[],int* size)
 
 
 // Called finding sum of the elements for a[i]; .
-void sum2(int x[],int* size, int* sum)
+void sum_array(int x[],int* size, int* sum)
 {
     int j;
     for(j=0;j<*size;j++)
