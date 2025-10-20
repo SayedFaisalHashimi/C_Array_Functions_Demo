@@ -47,11 +47,18 @@ do {
 } while(*size <= 0 || *size > 100);
 
 
-    for(i=0;i<*size;i++)
-    {   
-    printf(" Enter element %d: ", i+1);
-    scanf("%d", &x[i]);
-    }
+    for(i = 0; i < *size; i++) {
+    int valid;
+    do {
+        printf("Enter element %d: ", i + 1);
+        valid = scanf("%d", &x[i]);
+        if(!valid) {
+            printf("Invalid input! Enter an integer.\n");
+            while(getchar() != '\n'); // clear buffer
+        }
+    } while(!valid);
+}
+
 
     printf("\nYou entered the following numbers:\n");
       for(i=0; i<*size; i++) {
