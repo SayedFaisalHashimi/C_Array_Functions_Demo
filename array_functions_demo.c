@@ -23,9 +23,10 @@ float average_array(int size, int sum);   // Function to calculate the average o
 // main function
 int main()
 {
-    int M=0,sum=0,m=0; 
-    int a[100];    // Array to store up to 100 integers
-    int size;      // Actual size of the array entered by the user
+    int M=0,m=0; 
+    int a[100];  
+    int sum;      // Array to store up to 100 integers
+    int size;     // Actual size of the array entered by the user
 
     float avg=0;
    
@@ -106,6 +107,7 @@ int max(int x[],int* size)
 void sum_array(int x[],int* size, int* sum)
 {
     int j;
+    *sum=0;
     for(j=0;j<*size;j++)
     {
         *sum+=x[j];
