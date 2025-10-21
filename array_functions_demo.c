@@ -40,7 +40,7 @@ int main()
     // Display results
     printf(" Max element is : %d\n", M);
     printf(" Min element is : %d\n", m);
-    printf(" Sum is : %d/n ", sum);
+    printf(" Sum is : %d\n ", sum);
     printf("Avarage is : %.2f\n ", avg);
 
     return 0;
@@ -139,8 +139,8 @@ void display_array(int x[], int* size)
     printf("\nYou entered the following numbers:\n");
       for(j=0; j<*size; j++) {
       printf("%d ", x[j]);
-      printf("\n");
 }
+printf("\n");
 }
 
 
