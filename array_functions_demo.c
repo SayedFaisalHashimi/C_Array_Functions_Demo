@@ -14,9 +14,7 @@ int max(int x[],int* size);                   // Function to find the maximum el
 
 int min(int x[], int* size);                  // Function to find the minimum element
 
-void sum_array(int x[],int* size, int* sum);  // Function to calculate the sum of elements
-
-float average_array(int size, int sum);   // Function to calculate the average of elements
+float sum_and_average(int x[],int* size, int* sum);  // Function to calculate the sum and average of elements
 
 
 
@@ -24,8 +22,8 @@ float average_array(int size, int sum);   // Function to calculate the average o
 int main()
 {
     int M=0,m=0; 
-    int a[100];  
-    int sum;      // Array to store up to 100 integers
+    int a[100];   // Array to store up to 100 integers
+    int sum;      
     int size;     // Actual size of the array entered by the user
 
     float avg=0;
@@ -34,15 +32,14 @@ int main()
     display_array(a, &size);    // Prints all numbers stored in the array
     M=max(a,&size);             // Find maximum element
     m=min(a,&size);             // Find minimum element
-    sum_array(a,&size, &sum);   // Calculate sum of elements
-    avg=average_array(size,sum);// Calculate avarage of elements
+    avg=sum_and_average(a,&size,&sum);// Calculate sum and average of elements
 
 
     // Display results
     printf(" Max element is : %d\n", M);
     printf(" Min element is : %d\n", m);
     printf(" Sum is : %d\n ", sum);
-    printf("Avarage is : %.2f\n ", avg);
+    printf("Average is : %.2f\n ", avg);
 
     return 0;
 }
@@ -102,20 +99,16 @@ int max(int x[],int* size)
 
 
 
-// Function to calculate the sum of array elements
+// Function to calculate the sum and average of array elements
 
-void sum_array(int x[],int* size, int* sum)
+float sum_and_average(int x[], int* size, int *sum)
 {
-    int j;
-    *sum=0;
-    for(j=0;j<*size;j++)
-    {
-        *sum+=x[j];
-    }
-    
-    
-    
+    *sum = 0;
+    for(int i = 0; i < *size; i++)
+        *sum += x[i];
+    return (*size) ? (float)(*sum)/(*size) : 0.0f;
 }
+
 
 
 // Function to find the minimum element in the array
@@ -147,10 +140,3 @@ printf("\n");
 
 
 
-// Function to calculate the average of array elements
-
-float average_array(int size, int sum)
-{
-    if (size == 0) return 0.0f; // avoid division by zero
-    return (float)sum / size;
-}
