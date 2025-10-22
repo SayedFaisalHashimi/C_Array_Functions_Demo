@@ -16,6 +16,8 @@ int min(int x[], int* size);                  // Function to find the minimum el
 
 float sum_and_average(int x[],int* size, int* sum);  // Function to calculate the sum and average of elements
 
+void sort_in_ascending_order(int x[],int* size);     // Function to sort the elements of an integer array in ascending order using Bubble Sort
+
 
 
 // main function
@@ -28,8 +30,11 @@ int main()
 
     float avg=0;
    
+
+    //Function callings
     input_array(a,&size);       // Input array elements
     display_array(a, &size);    // Prints all numbers stored in the array
+    sort_in_ascending_order(a, &size); // Call the function to arrange all elements of array 'a' from smallest to largest
     M=max(a,&size);             // Find maximum element
     m=min(a,&size);             // Find minimum element
     avg=sum_and_average(a,&size,&sum);// Calculate sum and average of elements
@@ -135,7 +140,33 @@ void display_array(int x[], int* size)
       for(j=0; j<*size; j++) {
       printf("%d ", x[j]);
 }
-printf("\n");
+printf("\n\n");
+}
+
+
+
+// Function to sort an integer array in ascending order and display the sorted elements
+void sort_in_ascending_order(int x[], int *size)
+{
+    int temp;
+
+    // Bubble Sort
+    for (int i = 0; i < *size - 1; i++) {
+        for (int j = 0; j < *size - i - 1; j++) {
+            if (x[j] > x[j + 1]) {
+                temp = x[j];
+                x[j] = x[j + 1];
+                x[j + 1] = temp;
+            }
+        }
+    }
+    
+    // Display the sorted array
+    printf("The sorted array elements are:\n");
+    for (int k = 0; k < *size; k++) {
+        printf("%d ", x[k]);
+    }
+    printf("\n\n");
 }
 
 
