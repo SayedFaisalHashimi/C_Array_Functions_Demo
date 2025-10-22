@@ -1,11 +1,3 @@
-# C_Array_Functions_Demo
-Absolutely! Let’s make a **polished, recruiter-friendly, professional README** that highlights both your code and your skills. This version is concise, visually clear, and immediately shows your abilities to potential employers.
-
----
-
-# README.md
-
-````markdown
 # C Array Functions Demo
 
 A C program demonstrating **array manipulation** with robust, modular functions. This project calculates the **maximum, minimum, sum, and average** of integer arrays while validating user input and handling edge cases.
