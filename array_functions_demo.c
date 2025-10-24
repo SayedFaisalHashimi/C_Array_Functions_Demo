@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include <math.h>  // Required for sqrt
+
 // This program is written by  Sayed Faisal Hashimi
 // It calculates the maximum, minimum, and sum of elements in an integer array.
 // The program also validates user input for array size and array elements.
@@ -22,6 +24,8 @@ float median_array(int x[], int *size);   // Function to calculate median (assum
 
 float variance_array(int x[], int *size, float avg); // Function to calculate variance3
 
+float std_deviation(float variance);                // Function to calculate standard deviation
+
 
 
 // main function
@@ -32,7 +36,7 @@ int main()
     int sum;      
     int size;     // Actual size of the array entered by the user
 
-    float avg=0.0f, med=0.0f, var=0.0f;
+    float avg= 0.0f, med= 0.0f, var= 0.0f, std_dev= 0.0f;
    
 
     //Function callings
@@ -44,7 +48,7 @@ int main()
     avg=sum_and_average(a,&size,&sum);// Calculate sum and average of elements
     med = median_array(a, &size);   // Calculate and store the median value of the sorted array 'a'
     var = variance_array(a, &size, avg); // Calculate variance
-
+    std_dev = std_deviation(var);        // Calculate standard deviation
 
     // Display results
     printf(" Max element is : %d\n", M);
@@ -53,6 +57,7 @@ int main()
     printf("Average is     : %.2f\n ", avg);
     printf("Median is      : %.2f\n ", med);
     printf("Variance is    : %.2f\n", var);
+    printf(" Std Deviation  : %.2f\n", std_dev);
 
     return 0;
 }
@@ -211,4 +216,16 @@ float variance_array(int x[], int *size, float avg)
         var += diff * diff;
     }
     return (*size) ? var / (*size) : 0.0f;  // population variance
+}
+
+
+
+
+
+// Function to calculate standard deviation from variance
+float std_deviation(float variance)
+{
+    float stddev = 0.0f;
+    stddev = sqrt(variance);
+    return stddev;
 }
