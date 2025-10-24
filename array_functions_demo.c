@@ -20,6 +20,8 @@ void sort_in_ascending_order(int x[],int* size);     // Function to sort the ele
 
 float median_array(int x[], int *size);   // Function to calculate median (assumes array is sorted)
 
+float variance_array(int x[], int *size, float avg); // Function to calculate variance3
+
 
 
 // main function
@@ -30,7 +32,7 @@ int main()
     int sum;      
     int size;     // Actual size of the array entered by the user
 
-    float avg=0.0f, med=0.0f;
+    float avg=0.0f, med=0.0f, var=0.0f;
    
 
     //Function callings
@@ -41,6 +43,7 @@ int main()
     m=min(a,&size);             // Find minimum element
     avg=sum_and_average(a,&size,&sum);// Calculate sum and average of elements
     med = median_array(a, &size);   // Calculate and store the median value of the sorted array 'a'
+    var = variance_array(a, &size, avg); // Calculate variance
 
 
     // Display results
@@ -49,6 +52,7 @@ int main()
     printf(" Sum is         : %d\n ", sum);
     printf("Average is     : %.2f\n ", avg);
     printf("Median is      : %.2f\n ", med);
+    printf("Variance is    : %.2f\n", var);
 
     return 0;
 }
@@ -191,4 +195,20 @@ float median_array(int x[], int *size)
         int m2 = (*size) / 2;        // right middle index
         return ((float)x[m1] + (float)x[m2]) / 2.0f;  // average of two middle elements
     }
+}
+
+
+
+
+// Function to calculate variance of the array
+
+float variance_array(int x[], int *size, float avg)
+{
+    float var = 0.0f;
+    for(int i = 0; i < *size; i++)
+    {
+        float diff = x[i] - avg;
+        var += diff * diff;
+    }
+    return (*size) ? var / (*size) : 0.0f;  // population variance
 }
