@@ -18,6 +18,8 @@ float sum_and_average(int x[],int* size, int* sum);  // Function to calculate th
 
 void sort_in_ascending_order(int x[],int* size);     // Function to sort the elements of an integer array in ascending order using Bubble Sort
 
+float median_array(int x[], int *size);   // Function to calculate median (assumes array is sorted)
+
 
 
 // main function
@@ -28,7 +30,7 @@ int main()
     int sum;      
     int size;     // Actual size of the array entered by the user
 
-    float avg=0;
+    float avg=0.0f, med=0.0f;
    
 
     //Function callings
@@ -38,13 +40,15 @@ int main()
     M=max(a,&size);             // Find maximum element
     m=min(a,&size);             // Find minimum element
     avg=sum_and_average(a,&size,&sum);// Calculate sum and average of elements
+    med = median_array(a, &size);   // Calculate and store the median value of the sorted array 'a'
 
 
     // Display results
     printf(" Max element is : %d\n", M);
     printf(" Min element is : %d\n", m);
-    printf(" Sum is : %d\n ", sum);
-    printf("Average is : %.2f\n ", avg);
+    printf(" Sum is         : %d\n ", sum);
+    printf("Average is     : %.2f\n ", avg);
+    printf("Median is      : %.2f\n ", med);
 
     return 0;
 }
@@ -171,3 +175,20 @@ void sort_in_ascending_order(int x[], int *size)
 
 
 
+
+// Function to calculate the median value of a sorted integer array
+
+float median_array(int x[], int *size)
+{
+    if (*size == 0)          // no elements -> define median as 0.0f (or handle as you like)
+        return 0.0f;
+
+    if ((*size) % 2 == 1) {  // odd number of elements
+        int mid = (*size) / 2;       // integer division
+        return (float)x[mid];        // single middle element
+    } else {                 // even number of elements
+        int m1 = (*size) / 2 - 1;    // left middle index
+        int m2 = (*size) / 2;        // right middle index
+        return ((float)x[m1] + (float)x[m2]) / 2.0f;  // average of two middle elements
+    }
+}
